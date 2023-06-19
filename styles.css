@@ -10,11 +10,17 @@ body {
 }
 
 .screen {
+  font-family: 'Orbitron';font-size: 22px;
+  font-size: 30px;
   height: 80px;
   border: 2px solid red;
   margin-top: 20px;
   margin-left: 40px;
   margin-right: 40px;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  padding: 10px;
 }
 
 .buttons {
