@@ -14,9 +14,9 @@ function division (a,b) {
   return a / b;
 }
 
-let firstNumber;
-let secondNumber;
-let operator;
+let firstNumber = "";
+let secondNumber = "";
+let operator = "";
 
 function operate (a,b) {
   if (operator === "+") {
@@ -42,8 +42,8 @@ const numButtons = document.querySelectorAll(".number")
 
 numButtons.forEach((button) => {
   button.addEventListener('click', (e) => {
-    if (displayValue === "+" || displayValue === "-" || displayValue === "x" || displayValue == '÷') {
-      operator = displayValue;
+    if (displayValue.includes("+") || displayValue.includes("-") || displayValue.includes("x") || displayValue.includes('÷')) {
+      operator = displayValue.charAt(displayValue.length - 1);
       displayValue = "";
       console.log(operator);
     }
@@ -56,11 +56,21 @@ const operatorButtons = document.querySelectorAll(".operators")
 
 operatorButtons.forEach((button) => {
   button.addEventListener('click', (e) => {
-    firstNumber = displayValue;
-    console.log(firstNumber);
-    screen.textContent = "";
-    displayValue = button.value;
-    screen.textContent = displayValue;
+    if (firstNumber === "") {
+      firstNumber = displayValue;
+      console.log(firstNumber);
+      screen.textContent = "";
+      displayValue = button.value;
+      screen.textContent = displayValue;
+    }
+    else {
+      secondNumber = displayValue;
+      console.log(secondNumber);
+      displayValue = operate(+firstNumber,+secondNumber);
+      firstNumber = displayValue;
+      displayValue = displayValue + " " + button.value;
+      screen.textContent = displayValue;
+    }
   })
 })
 
