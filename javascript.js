@@ -83,4 +83,25 @@ equalsButton.addEventListener('click', (e) => {
   console.log(displayValue);
   screen.textContent = displayValue;
   displayValue = "";
+  firstNumber = "";
+  secondNumber = "";
+  operator = "";
 })
+
+const clearButton = document.querySelector(".clear");
+
+clearButton.addEventListener('click', (e) => {
+  screen.textContent = "";
+  firstNumber = "";
+  secondNumber = "";
+  operator = "";
+  displayValue = "";
+});
+
+const deleteButton = document.querySelector(".back_space");
+
+deleteButton.addEventListener('click', (e) => {
+  console.log(displayValue);
+  displayValue = displayValue.slice(0,(displayValue.length - 1));
+  screen.textContent = displayValue;
+});
