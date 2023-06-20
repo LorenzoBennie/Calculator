@@ -15,21 +15,21 @@ function division (a,b) {
 }
 
 let firstNumber;
-let secondumber;
+let secondNumber;
 let operator;
 
 function operate (a,b) {
   if (operator === "+") {
-    addition (a,b);
+    return addition(a,b);
   }
   else if (operator === "-") {
-    subtraction (a,b);
+    return subtraction(a,b);
   }
-  else if (operator === "*") {
-    multiplication(a,b);
+  else if (operator === "x") {
+    return multiplication(a,b);
   }
-  else if (operator === "/") {
-    division (a,b);
+  else if (operator === "÷") {
+    return division(a,b);
   }
 }
 
@@ -42,9 +42,10 @@ const numButtons = document.querySelectorAll(".number")
 
 numButtons.forEach((button) => {
   button.addEventListener('click', (e) => {
-    console.log(button.value);
     if (displayValue === "+" || displayValue === "-" || displayValue === "x" || displayValue == '÷') {
+      operator = displayValue;
       displayValue = "";
+      console.log(operator);
     }
     displayValue += button.value;
     screen.textContent = displayValue;
@@ -55,9 +56,21 @@ const operatorButtons = document.querySelectorAll(".operators")
 
 operatorButtons.forEach((button) => {
   button.addEventListener('click', (e) => {
-    console.log(button.value);
+    firstNumber = displayValue;
+    console.log(firstNumber);
     screen.textContent = "";
     displayValue = button.value;
     screen.textContent = displayValue;
   })
+})
+
+const equalsButton = document.querySelector(".equals");
+
+equalsButton.addEventListener('click', (e) => {
+  secondNumber = displayValue;
+  console.log(secondNumber);
+  displayValue = operate(+firstNumber,+secondNumber);
+  console.log(displayValue);
+  screen.textContent = displayValue;
+  displayValue = "";
 })
