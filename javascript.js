@@ -81,7 +81,12 @@ equalsButton.addEventListener('click', (e) => {
   console.log(secondNumber);
   displayValue = operate(+firstNumber,+secondNumber);
   console.log(displayValue);
-  screen.textContent = displayValue;
+  if (displayValue === Infinity) {
+    screen.textContent = "You cant do that!"
+  }
+  else {
+    screen.textContent = displayValue;
+  }  
   displayValue = "";
   firstNumber = "";
   secondNumber = "";
