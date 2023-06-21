@@ -6,10 +6,13 @@ body {
 
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #FCFBF4;
+  justify-content:space-between;
 }
+
 
 .calc_body {
   width: 500px;
@@ -64,4 +67,15 @@ button {
 
 .equals {
   width: 180px;
+}
+
+footer {
+  margin-top: 10px;
+  background-color: #0C2D48;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  color: white;
+  font-size: 20px;
+
 }
