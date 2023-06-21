@@ -46,6 +46,12 @@ numButtons.forEach((button) => {
       operator = displayValue.charAt(displayValue.length - 1);
       displayValue = "";
       console.log(operator);
+    };
+    if (button.value === ".") {
+      document.getElementById("decimal").disabled = true;
+    }
+    else if (!displayValue.includes(".")) {
+      document.getElementById("decimal").disabled = false;
     }
     displayValue += button.value;
     screen.textContent = displayValue;
@@ -110,3 +116,5 @@ deleteButton.addEventListener('click', (e) => {
   displayValue = displayValue.slice(0,(displayValue.length - 1));
   screen.textContent = displayValue;
 });
+
+//disabled decimal button if one is on screen//
