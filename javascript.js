@@ -53,6 +53,9 @@ numButtons.forEach((button) => {
     else if (!displayValue.includes(".")) {
       document.getElementById("decimal").disabled = false;
     }
+    if (!displayValue.includes("-")) {
+      document.getElementById("to_negative").disabled = false;
+    }
     displayValue += button.value;
     screen.textContent = displayValue;
   });
@@ -117,4 +120,15 @@ deleteButton.addEventListener('click', (e) => {
   screen.textContent = displayValue;
 });
 
-//disabled decimal button if one is on screen//
+const negativeButton = document.querySelector(".negative");
+
+negativeButton.addEventListener('click', (e) => {
+  if (negativeButton.value === "-") {
+    document.getElementById("to_negative").disabled = true;
+  }
+  else if (!displayValue.includes("-")) {
+    document.getElementById("to_negative").disabled = false;
+  }
+  displayValue = `${negativeButton.value}${displayValue}`;
+  screen.textContent = displayValue;
+})
